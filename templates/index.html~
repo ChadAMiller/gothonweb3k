@@ -1,0 +1,17 @@
+<%page args="greeting=None"/>
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Gothons of Planet Percal #25</title>
+    </head>
+<body>
+<p>
+% if greeting is not None:
+    I just wanted to say <em style='color: green; font-size: 2em;'>${greeting}</em>
+% else:
+    <em>Hello</em>, world!
+% endif
+</p>
+</body>
+</html>

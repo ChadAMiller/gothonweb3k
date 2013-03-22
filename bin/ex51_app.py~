@@ -1,0 +1,20 @@
+import cherrypy
+from mako.template import Template
+
+class MainPage:
+    def __init__(self):
+        self.layout = Template(filename='templates/layout.html')
+
+    @cherrypy.expose
+    def index(self):
+        form = Template(filename='templates/hello_form.html')
+        return self.layout.render(form.render())
+    
+#    @cherrypy.expose
+    def hello(self, greet='Nothing', name='Nobody'):
+        template = Template(filename='templates/index.html')
+        greeting = '{}, {}'.format(greet, name)
+        return self.layout.render(template.render(greeting))
+        
+if __name__ == '__main__':
+    cherrypy.quickstart(MainPage())

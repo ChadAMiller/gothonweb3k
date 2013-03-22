@@ -1,0 +1,15 @@
+<%page args="content=No Page Found"/>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gothons from Planet Percal #25</title>
+</head>
+
+<body>
+
+${content}
+
+</body>
+
+</html>

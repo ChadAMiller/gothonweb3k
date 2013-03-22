@@ -1,0 +1,21 @@
+[global]
+server.socket_port = int(os.environ.get('PORT', 5000))
+tools.sessions.on = True
+tools.sessions.storage_type = 'file'
+tools.sessions.storage_path = 'sessions'
+
+
+[/]
+tools.staticdir.root = os.getcwd()
+
+[/css]
+tools.staticdir.on = True
+tools.staticdir.dir = 'static/css'
+
+[/js]
+tools.staticdir.on = True
+tools.staticdir.dir = 'static/js'
+
+[/img]
+tools.staticdir.on = True
+tools.staticdir.dir = 'static/img'

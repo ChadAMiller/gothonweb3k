@@ -1,0 +1,13 @@
+import cherrypy
+from mako.template import Template
+
+class MainPage:
+    def index(self):
+        greeting = 'Hello World!'
+        template = Template(filename='templates/index.html')
+#        return template.render(greeting)
+        return template.render()
+    index.exposed = True
+        
+if __name__ == '__main__':
+    cherrypy.quickstart(MainPage())

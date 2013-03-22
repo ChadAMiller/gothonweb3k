@@ -1,0 +1,28 @@
+<%page args = "room"/>
+
+
+<div class="row">
+<h2 class="roomname"> ${room.name} </h2>
+
+<div class="row">
+<pre class="pre-scrollable span10">
+${room.description}
+</pre>
+</div>
+
+
+% if room.gameover:
+    <a href='/newgame'>
+        <button type="submit" id="newgame" class="btn btn-inverse">Play Again?</button>
+    </a>
+% else:
+    <div class="input-append">
+    <form autocomplete=off id="aform" action="/pl_action">
+        <input type="text" name="action" placeholder="Your move?" class="span10" id="appendedInputButton"/>
+        <button id="go" type="submit" class="btn btn-inverse">Go!</button>
+    </form>
+    </div>
+
+% endif
+
+</div>
