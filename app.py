@@ -65,7 +65,10 @@ class MainPage:
 if __name__ == '__main__':
     # cherrypy session syntax is weird so I factored it out
     session = sessions.session
-    conf = "config.txt"
+    
+    # hack so I can test the app locally without changing it from production version
     host = 'localhost' if os.getcwd().startswith('/home/chad') else '0.0.0.0'
     cherrypy.config.update({'server.socket_host': host})
+    
+    conf = "config.txt"
     cherrypy.quickstart(MainPage(), config=conf)
