@@ -11,7 +11,7 @@ $(document).ready(function()
     
     function updatePage()
     {
-         $.ajax('/gamestate').done(function(R)
+         $.ajax('/gamestate', cache=false).done(function(R)
         {
             var newroom = $.parseJSON(R);
         
@@ -32,7 +32,7 @@ $(document).ready(function()
     function playerAction(s)
     {
     
-        $.ajax('/pl_action/'+s).done(function()
+        $.ajax('/pl_action/'+s, cache=false).done(function()
         {
             updatePage();            
         });
