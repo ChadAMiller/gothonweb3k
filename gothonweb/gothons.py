@@ -151,8 +151,9 @@ INSTRUCTIONS = (
 '''This is an implementation of the final chapter exercise from Zed Shaw's
 "Learning Python the Hard Way."  It doesn't have a real parser yet, so I put in
 pop-up hints listing the valid commands.  It's a work-in-progress, so any wrong
-input will kill you.  "new game" will restart if you haven't already reached a
-game over.  Send any feedback (including bug reports!) to
+input will kill you.  "new game" will restart.  This game uses Javascript but
+should reasonably work without it, and it uses cookies but only to track your
+progress in the game.  Send any feedback (including bug reports!) to
 chad.a.miller@email.wsu.edu.
 ''')
 
