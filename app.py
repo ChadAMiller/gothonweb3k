@@ -1,7 +1,7 @@
 import os
 import cherrypy
 from mako.template import Template
-from gothonweb import game, map, sessions
+from gothonweb import gothons, sessions
 
 class Layout:
     # TODO: Figure out mako inheritance or consider another templating language
@@ -22,10 +22,12 @@ class MainPage:
         self.layout = Layout(filename='templates/layout.html')
         self.show_room = 'templates/show_room.html'
         
+        
     @cherrypy.expose
     def newgame(self):
-        session.set('game', game.Game())
-        seeother('/game')        
+        session.set('game', gothons.newgame())
+        seeother('/game')     
+           
     
     @cherrypy.expose
     def index(self):
@@ -33,6 +35,7 @@ class MainPage:
             seeother('/game')
         else:
             self.newgame()
+            
     
     @cherrypy.expose
     def game(self):        
@@ -42,17 +45,31 @@ class MainPage:
         except AttributeError:
             # i.e. no savegame exists
             self.newgame()
+            
 
     @cherrypy.expose
     def pl_action(self, action):
         if action == 'new game' or action == 'newgame':
             seeother('/newgame')            
         try:
-            room = session.get('game').act(action)
-            return room.json()
+            game = session.get('game')
+            game.act(action)
+            
         except Exception:
             # TODO: consider having this post an error of some sort
             seeother('/game')
+            
+            
+    @cherrypy.expose
+    def gamestate(self):
+        game = session.get('game')
+        return game.stateJSON()
+        
+    
+    @cherrypy.expose
+    def noscript_form(self, action):
+        self.pl_action(action)
+        seeother('/game')
             
             
     @cherrypy.expose
@@ -65,10 +82,6 @@ class MainPage:
 if __name__ == '__main__':
     # cherrypy session syntax is weird so I factored it out
     session = sessions.session
-    
-    # hack so I can test the app locally without changing it from production version
-    host = 'localhost' if os.getcwd().startswith('/home/chad') else '0.0.0.0'
-    cherrypy.config.update({'server.socket_host': host})
     
     conf = "config.txt"
     cherrypy.quickstart(MainPage(), config=conf)
