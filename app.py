@@ -1,3 +1,4 @@
+import os
 import cherrypy
 from mako.template import Template
 from gothonweb import game, map, sessions
@@ -65,4 +66,6 @@ if __name__ == '__main__':
     # cherrypy session syntax is weird so I factored it out
     session = sessions.session
     conf = "config.txt"
+    host = 'localhost' if os.getcwd().startswith('/home/chad') else '0.0.0.0'
+    cherrypy.config.update({'server.socket_host': host})
     cherrypy.quickstart(MainPage(), config=conf)
