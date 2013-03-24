@@ -19,20 +19,16 @@ $(document).ready(function()
         
         if(newroom.hint) showHint(newroom.hint);
         
-        $('.roomname').html(newroom.name);
+        $('.roomname').text(newroom.name, 750);
         
-        var $log = $('pre');
-        
-        $log.append(newroom.gametext);
-        
-        var h = $log.height();
-        $log.animate({'scrollTop': '+='+h}, 1000);
-        $('#appendedInputButton').val('');
+        $TEXTBOX.append(newroom.gametext);
+        pageDown();
+        $ACTIONBAR.val('');
     }
     
     function updatePage(newroom)
     {
-        //multiple ajax calls were killing performance
+        //multiple ajax calls were harming performance
         if(newroom)
         {
             postChanges(newroom);
@@ -57,13 +53,13 @@ $(document).ready(function()
     function pageUp()
     {
             var h = $TEXTBOX.height();
-            $TEXTBOX.animate({'scrollTop': '-='+h}, 500);
+            $TEXTBOX.animate({'scrollTop': '-='+h}, 750);
     }
     
     function pageDown()
     {
             var h = $TEXTBOX.height();
-            $TEXTBOX.animate({'scrollTop': '+='+h}, 500);
+            $TEXTBOX.animate({'scrollTop': '+='+h}, 750);
     }
     
     function arrowUp()
@@ -95,7 +91,7 @@ $(document).ready(function()
         else if(e.which == 40) arrowDown();
     });
     
-    $TEXTBOX.html('');
+    $TEXTBOX.text('');
     updatePage();
     
 });

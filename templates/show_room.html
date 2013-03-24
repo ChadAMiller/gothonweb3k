@@ -1,20 +1,17 @@
-<%page args = "room"/>
+<%page args = "game"/>
 
 
 <div class="row">
-<h2 class="roomname"> ${room.name} </h2>
+<h2 class="roomname"> ${game.name} </h2>
 </div>
 
 <div class="row">
-<pre class="pre-scrollable"><noscript>${room.description}
-% if room.hint:
-    HINT: ${room.hint}
-%endif
+<pre class="pre-scrollable"><noscript>${game.gametext}
 </noscript></pre>
 </div>
 
 
-% if room.gameover:
+% if game.gameover:
     <div class="row">
     <a href='/newgame'>
         <button type="submit" id="newgame" class="btn btn-inverse">Play Again?</button>

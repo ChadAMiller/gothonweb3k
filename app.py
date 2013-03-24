@@ -8,7 +8,8 @@ class Layout:
         self.layout = Template(filename=filename)
         
     def render(self, filename, *args):
-        return self.layout.render(Template(filename=filename).render(*args))
+        return self.layout.render("Gothons of Planet Percal #25",
+                                    Template(filename=filename).render(*args))
 
 
 def seeother(url):
@@ -38,13 +39,16 @@ class MainPage:
     
     @cherrypy.expose
     def game(self):
-        try:
-            room = session.get('game').room
-        except AttributeError:
-            self.newgame()
-            
-        if room is not None:
-            return self.layout.render(self.show_room, room)
+#         try:
+#             room = session.get('game').room
+#         except AttributeError:
+#             self.newgame()
+#             
+#         if room is not None:
+#             return self.layout.render(self.show_room, room)
+        game = session.get('game')
+        if game is not None:
+            return self.layout.render(self.show_room, game)
         else:
             # i.e. no savegame exists
             self.newgame()

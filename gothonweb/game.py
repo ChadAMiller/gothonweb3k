@@ -13,7 +13,7 @@ class Game:
         self.hint = start.hint
         self.gameover = start.gameover
         
-        
+    
     def act(self, direction):
         if self.gameover:
             self.gametext += 'The game is over.  Restart the game to try again.\n'

@@ -1,4 +1,4 @@
-<%page args="content='404 - No Page Found'"/>
+<%page args="title, content"/>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,14 +11,14 @@
     <link rel="shortcut icon" href="img/the_flying_sub.ico" />
 
 
-    <title>Gothons from Planet Percal #25</title>
+    <title>${title}</title>
     
 </head>
 
 <body>
 
 <div class="container">
-<div class="row"><h1>Gothons from Planet Percal #25</h1></div>
+<div class="row"><h1>${title}</h1></div>
 
 ${content}
 </div>
