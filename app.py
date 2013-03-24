@@ -1,4 +1,3 @@
-import os
 import cherrypy
 from mako.template import Template
 from gothonweb import gothons, sessions
