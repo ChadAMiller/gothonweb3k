@@ -22,12 +22,16 @@
     </div>
 % else:
     <div class="row">
-    <div class="input-append">
+        <div class="input-append">
     <form autocomplete=off id="aform" action="/noscript_form">
         <input type="text" class="span12" name="action" placeholder="Your move?" id="appendedInputButton"/>
         <button id="go" type="submit" class="btn btn-inverse"><i class="icon-play icon-white"></i></button>
     </form>
-    </div>
+        </div>
     </div>
 
 % endif
+
+<div class="row">
+    <span class="hintbar span12"></span>
+</div>

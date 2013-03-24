@@ -57,6 +57,7 @@ class MainPage:
         try:
             game = session.get('game')
             game.act(action)
+            return self.gamestate()
             
         except Exception:
             # TODO: consider having this post an error of some sort
