@@ -55,13 +55,13 @@ class MainPage:
             
 
     @cherrypy.expose
-    def pl_action(self, action):
+    def pl_action(self, action, ajax=False):
         if action == 'new game' or action == 'newgame':
             seeother('/newgame')            
         try:
             game = session.get('game')
             game.act(action)
-            return self.gamestate()
+            if ajax: return self.gamestate()
             
         except Exception:
             # TODO: consider having this post an error of some sort

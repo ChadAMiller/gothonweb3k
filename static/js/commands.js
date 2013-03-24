@@ -44,7 +44,7 @@ $(document).ready(function()
     function playerAction(s)
     {
     
-        $.ajax('/pl_action/'+s).done(function(R)
+        $.ajax('/pl_action/'+s+'/True').done(function(R)
         {
             updatePage(R);            
         });

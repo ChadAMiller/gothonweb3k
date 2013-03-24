@@ -7,6 +7,9 @@
 
 <div class="row">
 <pre class="pre-scrollable"><noscript>${game.gametext}
+% if game.hint:
+    HINT: ${game.hint}
+%endif
 </noscript></pre>
 </div>
 
