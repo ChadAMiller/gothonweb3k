@@ -6,7 +6,11 @@
 </div>
 
 <div class="row">
-<pre class="pre-scrollable"><noscript>${room.description} + ${room.hint} or ''</noscript></pre>
+<pre class="pre-scrollable"><noscript>${room.description}
+% if room.hint:
+    ${room.hint}
+%endif
+</noscript></pre>
 </div>
 
 
