@@ -38,7 +38,11 @@ class MainPage:
     
     @cherrypy.expose
     def game(self):
-        room = session.get('game').room
+        try:
+            room = session.get('game').room
+        except AttributeError:
+            self.newgame()
+            
         if room is not None:
             return self.layout.render(self.show_room, room)
         else:
