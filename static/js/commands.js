@@ -92,6 +92,7 @@ $(document).ready(function()
     });
     
     $TEXTBOX.text('');
+    $ACTIONBAR.focus();
     updatePage();
     
 });
