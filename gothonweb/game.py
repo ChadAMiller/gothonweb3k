@@ -32,7 +32,7 @@ class Game:
         
         
     def stateJSON(self):
-        outtext = self.gametext
+        outtext = self.gametext if self.gametext else self.room.description
         self.gametext = ''
         return json.dumps({'gametext': outtext,
                             'name': self.name,
