@@ -20,6 +20,8 @@ I have a [working demo](http://sleepy-meadow-1529.herokuapp.com/) running on Her
 
 Browse to localhost:5000 to test.
 
+`python -m unittest` for tests
+
 ### Python Dependencies
 
 *   CherryPy
@@ -27,7 +29,6 @@ Browse to localhost:5000 to test.
 
 ### Files you can delete if you don't use Heroku
 
-*   publish.sh - shell script I made to make publishing from my Linux machine a one-liner
 *   Procfile
 *   requirements.txt
 
