@@ -1,6 +1,6 @@
 # gothonweb3k
 
-This is an implementation of the final chapter of Zed Shaw's "Learn Python the Hard Way". It's not entirely finished because I remembered I don't actually like text adventure games.
+This is an implementation of the final chapter of Zed Shaw's "Learn Python the Hard Way". It's not only mostly finished because I remembered I don't actually like text adventure games.
 
 I didn't like web.py. As a result, I ended up trying other frameworks, then decided to write the thing in Python 3 instead of Python 2. Then it turns out that I wrote bilingual code; I've tested the codebase on 2.7 and 3.2 with no problems.
 

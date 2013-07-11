@@ -2,4 +2,5 @@
 *.sh
 venv
 tests
+./publish.sh
 
