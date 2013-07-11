@@ -20,6 +20,7 @@ class Sentence:
         return not (self == other)
         
         
+        
 def peek(word_list):
     if word_list:
         word = word_list[0]
@@ -86,42 +87,4 @@ def parse_sentence(word_list):
         return parse_subject(word_list, ('noun', 'player'))
     else:
         raise ParserError('Must start with subject, object, or verb not: {}'.format(start))
-        
-
-# def parse_sentence(word_list):
-#     words = word_list[:]
-#     result = []
-#     try:
-#         while not result:
-#             if peek(words) == 'noun':
-#                 result.append(words.pop(0))
-#                 break
-#             elif peek(words) == 'verb':
-#                 result.append(('noun', 'player'))
-#                 break
-#             else:
-#                 words.pop(0)
-#     except IndexError:
-#         raise ParserError('No subject or verb found')
-#         
-#     try:
-#         while len(result) < 2:
-#             if peek(words) == 'verb':
-#                 result.append(words.pop(0))
-#                 break
-#             else:
-#                 words.pop(0)
-#     except IndexError:
-#         raise ParserError('No verb found')
-#     
-#     try:
-#         while len(result) < 3:
-#             if peek(words) == 'noun':
-#                 result.append(words.pop(0))
-#                 return Sentence(*result)
-#             else:
-#                 words.pop(0)
-#     except IndexError:
-#         raise ParserError('No predicate found.')
-                
 

@@ -4,11 +4,12 @@ from gothonweb import gothons, sessions
 
 class Layout:
     # TODO: Figure out mako inheritance or consider another templating language
-    def __init__(self, filename):
+    def __init__(self, filename, title):
         self.layout = Template(filename=filename)
+        self.title = title
         
     def render(self, filename, *args):
-        return self.layout.render("Gothons of Planet Percal #25",
+        return self.layout.render(self.title,
                                     Template(filename=filename).render(*args))
 
 
@@ -19,7 +20,7 @@ def seeother(url):
 class MainPage:
     
     def __init__(self):
-        self.layout = Layout(filename='templates/layout.html')
+        self.layout = Layout('templates/layout.html', gothons.TITLE)
         self.show_room = 'templates/show_room.html'
         
         
@@ -39,13 +40,6 @@ class MainPage:
     
     @cherrypy.expose
     def game(self):
-#         try:
-#             room = session.get('game').room
-#         except AttributeError:
-#             self.newgame()
-#             
-#         if room is not None:
-#             return self.layout.render(self.show_room, room)
         game = session.get('game')
         if game is not None:
             return self.layout.render(self.show_room, game)

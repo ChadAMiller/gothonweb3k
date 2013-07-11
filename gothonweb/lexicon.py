@@ -1,6 +1,7 @@
 directions = {'north', 'south', 'east', 'west', 'up', 'down'}
 nouns = {'player', 'bear', 'princess', 'joke', 'bomb'}
-verbs = {'go', 'kill', 'eat', 'tell', 'shoot', 'dodge', 'throw', 'place', 'set'}
+verbs = {'go', 'kill', 'eat', 'tell', 'shoot', 'dodge', 'throw', 'place', 'set',
+        'get', 'take', 'open'}
 stops = {'the', 'in', 'of', 'a'}
 
 # TODO: Decide if I want the engine to lowercase everything, or just leave as-is
